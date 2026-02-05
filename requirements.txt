@@ -1,0 +1,10 @@
+# Удалите старый файл если он пустой
+Remove-Item "requirements (2).txt" -ErrorAction SilentlyContinue
+
+# Создайте правильный requirements.txt
+@'
+python-telegram-bot==20.7
+'@ | Out-File -FilePath "requirements.txt" -Encoding UTF8
+
+# Проверьте
+Get-Content requirements.txt
